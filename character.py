@@ -36,6 +36,12 @@ class Ball():
     def draw(self, surface):
         pygame.draw.rect(surface, constants.WHITE, self.rect)
 
+    def hit_wall(self, right_border, left_border):
+        if self.rect.colliderect(right_border):
+            return True
+        if self.rect.colliderect(left_border):
+            return True
+
 
 class Paddle():
     def __init__(self, x, y):
@@ -47,6 +53,7 @@ class Paddle():
             self.rect.y += dy
         elif self.rect.centery - self.rect.size[1]/2 > 0 and self.rect.centery + self.rect.size[1]/2 < constants.SCREEN_HEIGHT:
             self.rect.y += dy
+
 
     def draw(self, surface):
         pygame.draw.rect(surface, constants.WHITE, self.rect)
