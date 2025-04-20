@@ -59,8 +59,8 @@ while run:
     if moving_down_pad2:
         dy2 = speed_pad2
 
-    paddle1.move(dy1, top_border, bottom_border)
-    paddle2.move(dy2, top_border, bottom_border)
+    paddle1.move(dy1)
+    paddle2.move(dy2)
     paddle1.draw(screen)
     paddle2.draw(screen)
     pong.move(top_border, right_border, bottom_border, left_border, paddle1.get_rect(), paddle2.get_rect())
@@ -70,7 +70,6 @@ while run:
         pygame.draw.rect(screen, constants.WHITE, i)
 
     pygame.display.update()
-
 
 
     if keys[pygame.K_w]:

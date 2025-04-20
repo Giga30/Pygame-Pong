@@ -1,7 +1,6 @@
 import pygame
 import constants
 import math
-import random
 
 class Ball():
     def __init__(self, x, y, speed):
@@ -43,13 +42,12 @@ class Paddle():
         self.rect = pygame.Rect(0, 0, 10, 100)
         self.rect.center = (x, y)
 
-    def move(self, dy, top_border, bottom_border):
-        print(self.rect.centery - self.rect.size[1]/2)
+    def move(self, dy):
         if (self.rect.centery - self.rect.size[1]/2 <= 0 and dy > 0) or (self.rect.centery + self.rect.size[1]/2 >= constants.SCREEN_HEIGHT and dy < 0):
             self.rect.y += dy
         elif self.rect.centery - self.rect.size[1]/2 > 0 and self.rect.centery + self.rect.size[1]/2 < constants.SCREEN_HEIGHT:
             self.rect.y += dy
-    
+
     def draw(self, surface):
         pygame.draw.rect(surface, constants.WHITE, self.rect)
     
