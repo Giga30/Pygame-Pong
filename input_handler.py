@@ -1,6 +1,6 @@
 import pygame
 
-class input_handler():
+class InputHandler():
     def __init__(self):
         self.key_state = {
             pygame.K_w: False,

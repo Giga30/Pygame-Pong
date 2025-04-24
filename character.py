@@ -18,30 +18,28 @@ class Ball():
         # Bounce off the walls
         if self.rect.colliderect(top_border):
             self.dy *= -1
+
         if self.rect.colliderect(right_border):
-            self.dx *= -1
+            return 'Right'
+
         if self.rect.colliderect(bottom_border):
             self.dy *= -1
+
         if self.rect.colliderect(left_border):
-            self.dx *= -1
+            return 'Left'
+
         if self.rect.colliderect(paddle1):
             self.dx *= -1
+
         if self.rect.colliderect(paddle2):
             self.dx *= -1
         
         # Move the ball
         self.rect.x += self.dx
         self.rect.y += self.dy
-
+        print(self.dx, self.dy)
     def draw(self, surface):
         pygame.draw.rect(surface, constants.WHITE, self.rect)
-
-    def hit_wall(self, right_border, left_border):
-        if self.rect.colliderect(right_border):
-            return True
-        if self.rect.colliderect(left_border):
-            return True
-
 
 class Paddle():
     def __init__(self, x, y):
